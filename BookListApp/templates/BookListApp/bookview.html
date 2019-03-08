@@ -4,6 +4,6 @@
     <h5 class="card-title">by: {{Book.author | title}}</h5>
     <p>Category: {{Book.get_type_of_book_display}} </p>
     <p>Published: {{Book.date_published}}</p>
-    <a href="{%url "BookListApp:delete" Book.id %}" class="btn btn-primary btn-delete">Delete or smt</a>
+    <a href="{%url "BookListApp:delete" Book.id %}" class="btn btn-primary btn-delete">Delete</a>
   </div>
 </div>

@@ -19,4 +19,4 @@ class MainListView(ListView):
 
 class DeleteBookView(DeleteView):
     model = models.Book
-    succes_url = reverse_lazy('BookListApp:home')
+    success_url = reverse_lazy('BookListApp:home')

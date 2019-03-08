@@ -10,4 +10,9 @@ urlpatterns = [
         views.MainListView.as_view(),
         name = 'home',
     ),
+    path(
+        'delete/<int:pk>/',
+        views.DeleteBookView.as_view(),
+        name = 'delete'
+    ),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

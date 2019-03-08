@@ -1,9 +1,9 @@
 <div class="card">
   <h4 class="card-header">{{Book.title}}</h4>
   <div class="card-body">
-    <h5 class="card-title">a {{Book.get_book_diplay}} by: {{Book.author}}</h5>
-    <p>publihed: {{Book.date_published}}</p>
-    <a href="#" class="btn btn-primary">Delete or smt</a>
+    <h5 class="card-title">by: {{Book.author | title}}</h5>
+    <p>Category: {{Book.get_type_of_book_display}} </p>
+    <p>Published: {{Book.date_published}}</p>
+    <a href="{%url "BookListApp:delete" Book.id %}" class="btn btn-primary btn-delete">Delete or smt</a>
   </div>
-
 </div>

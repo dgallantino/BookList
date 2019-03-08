@@ -1,0 +1,8 @@
+<ol class="breadcrumb">
+  {% for nav in navigations %}
+  <li class = "breadcrumb-item"><a hreff="/{{nav}}">{{nav}}</a></li>
+    {% if forloop.last %}
+  <li class = "breadcrumb-item active" aria-current="page">{{nav}}</li>
+    {% endif %}
+  {% endfor %}
+</ol>

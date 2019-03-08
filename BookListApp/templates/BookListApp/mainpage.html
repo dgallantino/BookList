@@ -1,0 +1,11 @@
+{% extends "BookListApp/base.html" %}
+
+{% block content-main %}
+<main>
+  <ul>
+    {% for Book in Books %}
+      {% include "BookListApp/bookview.html" with Book=Book %}
+    {% endfor %}
+  </ul>
+</main>
+{% endblock %}

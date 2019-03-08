@@ -1,0 +1,11 @@
+<header class="navbar fixed-top navbar-expand-md">
+  <ol class="breadcrumb">
+    {% for nav in navigations %}
+      {% if forloop.last %}
+      <li class = "breadcrumb-item active" aria-current="page">{{nav}}</li>
+      {% else %}
+      <li class = "breadcrumb-item"><a hreff="/{{nav}}">{{nav}}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</header>

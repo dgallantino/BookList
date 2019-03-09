@@ -10,7 +10,7 @@ class BookCreationForm(BookBaseForm):
     """Creation Form"""
     def __init__(self, *args, **kwargs):
         super(BookCreationForm, self).__init__(*args, **kwargs)
-        #styling by atributes
+        #styling using atributes
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
             visible.field.widget.attrs['placeholder'] = visible.field.label

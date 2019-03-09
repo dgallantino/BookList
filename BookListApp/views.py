@@ -14,6 +14,7 @@ class MainListView(CreateView):
     model=models.Book
     form_class = forms.BookCreationForm
     success_url = reverse_lazy('BookListApp:home')
+
     def get_context_data(self,**kwargs):
         context = super(MainListView,self).get_context_data(**kwargs)
         #context for the book list
@@ -21,17 +22,21 @@ class MainListView(CreateView):
         #context for navigation
         context["Navigations"] = ["Home",]
         return context
+
     def form_invalid(self, form):
         html_message=""
+
         for idx, field_messages in form.errors.items():
             for message in field_messages:
                 html_message = html_message + message +"\n"
+
         messages.add_message(
             request=self.request,
             level=messages.ERROR,
             message=html_message,
             fail_silently=True,
         )
+        
         return super(MainListView, self).form_invalid(form);
 
 class DeleteBookView(DeleteView):

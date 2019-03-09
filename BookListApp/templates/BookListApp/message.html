@@ -1,0 +1,16 @@
+  <!-- notification container -->
+  <div class="notification-container">
+    {% for message in messages %}
+    <div class="alert {{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message.tags|capfirst}}!</strong> {{message|capfirst}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </div>
+  <script type="text/javascript">
+    $(".alert-dismissible").fadeTo(5000, 500).slideUp(500, function(){
+        $(".notification-top").slideUp(500);
+    });
+  </script>

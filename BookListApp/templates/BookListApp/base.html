@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +8,8 @@
     {% endblock %}
     <!-- Latest compiled and minified CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'BookListApp/css/base.css' %}" rel="stylesheet">
+
     {% block stylesheet %}
 
     {% endblock %}
@@ -39,6 +42,11 @@
 
       </footer>
     {% endblock %}
+
+    {% if messages %}
+      {% include "BookListApp/message.html" with messages=messages%}
+    {% endif %}
+
     {% block content-scripts %}
     {% endblock %}
   </body>

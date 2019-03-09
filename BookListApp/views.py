@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 from BookListApp import models, forms
@@ -20,6 +21,14 @@ class MainListView(CreateView):
         #context for navigation
         context["Navigations"] = ["Home",]
         return context
+    def form_invalid(self, form):
+        messages.add_message(
+            request=self.request,
+            level=messages.ERROR,
+            message="Invalid form",
+            fail_silently=True,
+        )
+        return super(MainListView, self).form_invalid(form);
 
 class DeleteBookView(DeleteView):
     model = models.Book

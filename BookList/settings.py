@@ -109,7 +109,7 @@ LANGUAGE_CODE = 'en-gb'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = False
+USE_I18N = True
 
 USE_L10N = False
 
@@ -123,6 +123,7 @@ DATE_INPUT_FORMATS = [
     '%B %d %Y', '%B %d, %Y',            # 'October 25 2006', 'October 25, 2006'
     '%d %B %Y', '%d %B, %Y',            # '25 October 2006', '25 October, 2006'
 ]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

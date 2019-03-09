@@ -11,13 +11,13 @@
 {% endblock %}
 
 {% block content-main %}
-<main style="margin-top:70px;">
+<main>
   <div class="container container-main" >
+    {% include "BookListApp/book-create.html" with form=form %}
+
     {% for Book in Books %}
       {% include "BookListApp/book-view.html" with Book=Book %}
     {% endfor %}
-
-    {% include "BookListApp/book-create.html" with form=form %}
   </div>
 </main>
 {% endblock %}

@@ -6,17 +6,39 @@
     {% csrf_token %}
     <h4 class="card-header">{{ form.title }}</h4>
     <div class="card-body">
-      <h5 class="card-title">{{form.author }}</h5>
-      <p>{{form.type_of_book}} </p>
-      <p>{{form.date_published}}</p>
-      <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+      <div class="form-group">
+        {{form.author }}
+      </div>
+      <div class="form-group">
+        {{form.type_of_book}}
+      </div>
+      <div id="dateContainer" class="form-group">
+        {{form.date_published}}
+      </div>
+      <input type="submit" name="submit" value="Submit" class="btn btn-primary"/>
+      <input type="submit" name="cancel" value="Cancel" class="btn btn-secondary btn-cancel"/>
     </div>
   </form>
 </div>
 <script type="text/javascript">
-  $(".btn-add").on("click", function(e){
-    e.preventDefault();
-    var parrent = $(this).parent(".overlay").hide();
-    parrent.siblings(".blur").toggleClass("blur");
+  $(document).ready(function(){
+    //button to remove overlay
+    $(".btn-add").on("click", function(e){
+      e.preventDefault();
+      var parrent = $(this).parent(".overlay").hide();
+      parrent.siblings("form").toggleClass("blur");
+    });
+
+    $(".btn-cancel").on("click", function(e){
+      e.preventDefault();
+      var form = $(this).closest("form").toggleClass("blur");
+      form.find("input[type=text], textarea").val("");
+      form.find("select").prop("selectedIndex",0);
+      form.siblings(".overlay").show();
+    });
+    // bind with jquey-datepicker plugin
+    $("#id_date_published").datepicker({
+      format:"dd/mm/yyyy",
+    });
   });
 </script>

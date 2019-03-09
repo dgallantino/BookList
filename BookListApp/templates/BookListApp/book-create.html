@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="overlay">
+    <a href="#"  class="btn btn-primary btn-add">Add Book</a>
+  </div>
+  <form action="{% url 'BookListApp:home' %}" class="blur" method="post">
+    {% csrf_token %}
+    <h4 class="card-header">{{ form.title }}</h4>
+    <div class="card-body">
+      <h5 class="card-title">{{form.author }}</h5>
+      <p>{{form.type_of_book}} </p>
+      <p>{{form.date_published}}</p>
+      <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+  $(".btn-add").on("click", function(e){
+    e.preventDefault();
+    var parrent = $(this).parent(".overlay").hide();
+    parrent.siblings(".blur").toggleClass("blur");
+  });
+</script>

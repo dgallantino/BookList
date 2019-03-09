@@ -1,0 +1,29 @@
+{% extends "BookListApp/base.html" %}
+{% load static%}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static "BookListApp/css/main-page.css" %}">
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'BookListApp/js/cookie-manager.js' %}"></script>
+  <script src="{% static 'BookListApp/js/delete.js' %}"></script>
+{% endblock %}
+
+{% block content-main %}
+<main style="margin-top:70px;">
+  <div class="container container-main" >
+    {% for Book in Books %}
+      {% include "BookListApp/book-view.html" with Book=Book %}
+    {% endfor %}
+
+    {% include "BookListApp/book-create.html" with form=form %}
+  </div>
+</main>
+{% endblock %}
+
+{% block content-scripts %}
+<script type="text/javascript">
+  $('.btn-delete').asDeleteButton();
+</script>
+{% endblock %}

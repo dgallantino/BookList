@@ -5,7 +5,6 @@
     $.each(this,function(idx,dom_object){
       var button = $(dom_object);
       var parrent_card = button.closest('div.card');
-      console.log( button.attr('href'));
 
       button.on('click',function(e){
         e.preventDefault();
@@ -20,6 +19,7 @@
         })
         .done(function(data){
           //deletion complete
+          parrent_card.remove();
         });
         return 0;
       });

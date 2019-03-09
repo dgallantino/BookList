@@ -15,4 +15,9 @@ urlpatterns = [
         views.DeleteBookView.as_view(),
         name = 'delete'
     ),
+    path(
+        'create/',
+        views.MainListView.as_view(),
+        name = 'create'
+    ),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

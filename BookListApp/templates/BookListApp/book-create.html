@@ -36,9 +36,10 @@
       form.find("select").prop("selectedIndex",0);
       form.siblings(".overlay").show();
     });
-    // bind with jquey-datepicker plugin
+
+    // bind with bootstrap-datepicker plugin
     $("#id_date_published").datepicker({
-      format:"dd/mm/yyyy",
+      format:"dd MM, yyyy",
     });
   });
 </script>

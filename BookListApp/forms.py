@@ -14,7 +14,7 @@ class BookCreationForm(BookBaseForm):
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
             visible.field.widget.attrs['placeholder'] = visible.field.label
-        self.fields.get("date_published").widget.attrs["placeholder"]="Date published (dd/mm/yyyy)"
+        self.fields.get("date_published").widget.attrs["placeholder"]="Date published (dd MM, yyyy)"
     class Media:
         css = {
             'all':(

@@ -22,10 +22,14 @@ class MainListView(CreateView):
         context["Navigations"] = ["Home",]
         return context
     def form_invalid(self, form):
+        html_message=""
+        for idx, field_messages in form.errors.items():
+            for message in field_messages:
+                html_message = html_message + message +"\n"
         messages.add_message(
             request=self.request,
             level=messages.ERROR,
-            message="Invalid form",
+            message=html_message,
             fail_silently=True,
         )
         return super(MainListView, self).form_invalid(form);

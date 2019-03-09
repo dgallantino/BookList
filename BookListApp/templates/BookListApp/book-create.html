@@ -27,7 +27,7 @@
     //button to remove overlay
     $(".btn-add").on("click", function(e){
       e.preventDefault();
-      var parrent = $(this).parent(".overlay").hide();
+      var parrent = $(this).parent(".overlay").hide('fast');
       parrent.siblings("form").toggleClass("blur");
     });
 
@@ -36,12 +36,16 @@
       var form = $(this).closest("form").toggleClass("blur");
       form.find("input[type=text], textarea").val("");
       form.find("select").prop("selectedIndex",0);
-      form.siblings(".overlay").show();
+      form.siblings(".overlay").show('fast');
     });
 
     // bind with bootstrap-datepicker plugin
     $("#id_date_published").datepicker({
       format:"dd MM, yyyy",
+      orientation: "bottom",
+      startView: "decade",
+      showWeekDays: false,
+      autoclose: true,
     });
   });
 </script>

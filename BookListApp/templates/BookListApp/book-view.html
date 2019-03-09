@@ -6,7 +6,7 @@
     <p>Published: {{Book.date_published|date:"d F, Y"}}</p>
   </div>
   <div class="card-footer">
-    <a href="{%url "BookListApp:update" Book.pk %}" class="btn btn-primary">Update</a>
+    <a href="{%url "BookListApp:update" Book.pk %}" class="btn btn-primary">Edit</a>
     <a href="{%url "BookListApp:delete" Book.id %}" class="btn btn-secondary btn-delete">Delete</a>
   </div>
 </div>

@@ -8,6 +8,11 @@
 {% block scripts %}
   <script src="{% static 'BookListApp/js/cookie-manager.js' %}"></script>
   <script src="{% static 'BookListApp/js/book-delete.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.btn-delete').asDeleteButton();
+    });
+  </script>
 {% endblock %}
 
 {% block content-main %}
@@ -20,10 +25,4 @@
       {% endfor %}
     </div>
 </main>
-{% endblock %}
-
-{% block content-scripts %}
-<script type="text/javascript">
-  $('.btn-delete').asDeleteButton();
-</script>
 {% endblock %}

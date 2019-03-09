@@ -30,7 +30,7 @@
 
   <body>
     {% block content-header %}
-      {% include "BookListApp/header.html" with navigations=Navigations %}
+      {% include "BookListApp/header.html" with Breadcrumb=Navigations %}
     {% endblock %}
     {% block content-main %}
       <main>

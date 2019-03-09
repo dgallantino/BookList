@@ -12,13 +12,13 @@
 
 {% block content-main %}
 <main>
-  <div class="container container-main" >
-    {% include "BookListApp/book-create.html" with form=form %}
+    <div class="container container-main">
+      {% include "BookListApp/book-create.html" with form=form %}
 
-    {% for Book in Books %}
-      {% include "BookListApp/book-view.html" with Book=Book %}
-    {% endfor %}
-  </div>
+      {% for Book in Books %}
+        {% include "BookListApp/book-view.html" with Book=Book %}
+      {% endfor %}
+    </div>
 </main>
 {% endblock %}
 

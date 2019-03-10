@@ -3,7 +3,10 @@
   <div class="card-body">
     <h5 class="card-title">by: {{Book.author | title}}</h5>
     <p>Category: {{Book.get_type_of_book_display}} </p>
-    <p>Published: {{Book.date_published|date:"d F, Y"}}</p>
+    <p>Published: {{Book.date_published|date:"d F, Y"|default:"Unavailable"}}</p>
+    <p>{% if Book.number_of_pages %}{{Book.number_of_pages}} pages{% endif %}
+    </p>
+
   </div>
   <div class="card-footer">
     <a href="{%url "BookListApp:update" Book.pk %}" class="btn btn-primary">Edit</a>

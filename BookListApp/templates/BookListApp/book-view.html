@@ -7,6 +7,6 @@
   </div>
   <div class="card-footer">
     <a href="{%url "BookListApp:update" Book.pk %}" class="btn btn-primary">Edit</a>
-    <a href="{%url "BookListApp:delete" Book.id %}" class="btn btn-secondary btn-delete">Delete</a>
+    <a data-target="#confirm-delete" href="{%url "BookListApp:delete" Book.id %}" data-toggle="modal" class="btn btn-secondary btn-delete">Delete</a>
   </div>
 </div>

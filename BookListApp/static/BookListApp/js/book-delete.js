@@ -1,29 +1,44 @@
 (function($){
+  var _delete_object;
+  var _link;
+  var _deleteRequest = function(href, entry){
+    $.ajax({
+      url : href,
+      type : "POST",
+      dataType: 'html'
+    })
+    .fail(function(xhr){
+      //deletion failed
+      console.log(xhr);
+    })
+    .done(function(data){
+      //deletion complete
+      entry.fadeOut();
+    });//end of ajax req
+  };
+
+
+
   $.fn.asDeleteButton = function(){
-
-    var csrftoken = getCookie('csrftoken');
     $.each(this,function(idx,dom_object){
-      var button = $(dom_object);
-      var parrent_card = button.closest('div.card');
-
-      button.on('click',function(e){
+      $(dom_object).on('click',function(e){
         e.preventDefault();
-        $.ajax({
-          url : button.attr('href'),
-          type : "POST",
-          dataType: 'html'
-        })
-        .fail(function(xhr){
-          //deletion failed
-          console.log(xhr);
-        })
-        .done(function(data){
-          //deletion complete
-          parrent_card.remove();
-        });
-        return 0;
-      });
+        _link = $(dom_object).attr('href');
+        _delete_object = $(dom_object).closest('div.card');
+      });//end delete link event
+    });//end each
+    return this;
+  };
 
+  $.fn.asConfirmModal = function(){
+    $.each(this, function(idx, dom_object){
+      $(dom_object).on('shown.bs.modal', function(e){
+        $(this).find('#btn-cancel-delete');
+        $(this).find('.btn-ok').on('click', function(e){
+          _deleteRequest(_link, _delete_object);
+        }).focus();
+      });
     });
+    return this;
   };
 }(jQuery));

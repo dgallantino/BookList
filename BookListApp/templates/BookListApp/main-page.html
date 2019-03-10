@@ -11,6 +11,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.btn-delete').asDeleteButton();
+      $('#confirm-delete').asConfirmModal();
     });
   </script>
 {% endblock %}
@@ -25,4 +26,8 @@
       {% endfor %}
     </div>
 </main>
+{% endblock %}
+
+{% block content-footer %}
+  {% include "BookListApp/book-delete-confirm.html" %}
 {% endblock %}
